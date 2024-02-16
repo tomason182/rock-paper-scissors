@@ -15,16 +15,15 @@ function getplayerChoice(playerChoice) {
 }
 
 function getComputerChoice() {
-    computerSelection = Math.floor(Math.random() * 3)
+    computerSelection = Math.floor(Math.random() * 3);
     return computerSelection
 }
 
 
 function playRound(playerSelection, computerSelection) {
     const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    return gameArray[playerSelection][computerSelection]
-    
-
+    let result = gameArray[playerSelection][computerSelection];
+    return result
 }
 
 
