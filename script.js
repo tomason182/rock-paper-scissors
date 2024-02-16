@@ -3,13 +3,13 @@ let computerChoice = getComputerChoice();
 
 function getplayerChoice(playerChoice) {
         if (playerChoice === "rock") {
-            let playerSelection = 0;
+            const playerSelection = 0;
         }else if (playerChoice === "paper") {
-            let playerSelection = 1;
+            const playerSelection = 1;
         }else if (playerChoice === "scissors") {
-            let playerSelection = 2;
+            const playerSelection = 2;
         }else {
-            let playerSelection = prompt("Wrong Selection. Select Rock, Paper or Scissors: ")
+            const playerSelection = prompt("Wrong Selection. Select Rock, Paper or Scissors: ")
         }
         return playerSelection
 }
@@ -20,10 +20,21 @@ function getComputerChoice() {
 }
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound(getplayerChoice, getComputerChoice) {
     const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[playerSelection][computerSelection];
+    let result = gameArray[getplayerChoice][getComputerChoice];
     return result
+}
+
+function finalResult(result) {
+    if (result = -1) {
+        let finalResult = `You tied! ${playerChoice} tieds with ${playerChoice}`;
+    }else if (result = 0) {
+        let finalResult = `You Loose! ${playerChoice} beats ${playerChoice} `;
+    }else {
+        let finalResult = `Yoy Win! ${playerChoice} defeat ${playerChoice}`
+    }
+    return finalResult
 }
 
 
