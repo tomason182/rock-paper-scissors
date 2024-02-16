@@ -1,6 +1,12 @@
 let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
 let computerChoice = getComputerChoice();
 
+function playRound(getplayerChoice, getComputerChoice) {
+    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
+    let result = gameArray[getplayerChoice][getComputerChoice];
+    return result
+}
+
 function getplayerChoice(playerChoice) {
         if (playerChoice === "rock") {
             const playerSelection = 0;
@@ -17,13 +23,6 @@ function getplayerChoice(playerChoice) {
 function getComputerChoice() {
     computerSelection = Math.floor(Math.random() * 3);
     return computerSelection
-}
-
-
-function playRound(getplayerChoice, getComputerChoice) {
-    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[getplayerChoice][getComputerChoice];
-    return result
 }
 
 function finalResult(result) {
