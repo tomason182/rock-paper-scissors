@@ -1,9 +1,10 @@
-let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase()
+let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
+let computerChoice = getComputerChoice();
 
 function getComputerChoice() {
-    const choices = ["rock", "paper", "scissors"]
+    const choices = ["rock", "paper", "scissors"];
 
-    let randomChoice = choices[randomNumber()]
+    let randomChoice = choices[randomNumber()];
     return randomChoice
 
 }
@@ -12,12 +13,14 @@ function randomNumber() {
     return Math.floor(Math.random() * 3)
 }
 
+
+
 function playRound() {
-    if (playerChoice === getComputerChoice()) {
-        return ""
-    }
+    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
+    return gameArray[2][0]
+    
+
 }
 
 
-console.log(playerChoice)
-console.log(getComputerChoice())
+console.log(playRound())
