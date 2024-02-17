@@ -1,12 +1,9 @@
+//Create variable User prompt
 let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
+//Variable computerChoice get random number
 let computerChoice = getComputerChoice();
 
-function playRound(getplayerChoice, getComputerChoice) {
-    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[getplayerChoice][getComputerChoice];
-    return result
-}
-
+//Transform player choice into integer
 function getplayerChoice(playerChoice) {
         if (playerChoice === "rock") {
             const playerSelection = 0;
@@ -15,14 +12,34 @@ function getplayerChoice(playerChoice) {
         }else if (playerChoice === "scissors") {
             const playerSelection = 2;
         }else {
-            const playerSelection = prompt("Wrong Selection. Select Rock, Paper or Scissors: ")
+            const playerSelection = alert("Wrong Selection. Select Rock, Paper or Scissors.")
         }
         return playerSelection
 }
 
+//random number between 0 and 2
 function getComputerChoice() {
     computerSelection = Math.floor(Math.random() * 3);
     return computerSelection
+}
+
+//make random number to rock, paper scissors
+
+function computerChoiceToNumber(computerChoice) {
+    let computerToNumber;
+    if (computerChoice === 0) {
+        computerToNumber = "Rock";
+    }else if (computerChoice === 1) {
+        computerToNumber = "Paper";
+    }else {computerToNumber = "Scissors"}
+
+    return computerToNumber
+}
+
+function playRound(getplayerChoice, getComputerChoice) {
+    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
+    let result = gameArray[getplayerChoice][getComputerChoice];
+    return result
 }
 
 function finalResult(result) {
