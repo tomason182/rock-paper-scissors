@@ -1,57 +1,66 @@
-//Create variable User prompt
+//Player select a choice
 let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
-//Variable computerChoice get random number
+//Computer select a choice (number)
 let computerChoice = getComputerChoice();
 
+let userChoice = playerChoiceToInt(playerChoice)
+
 //Transform player choice into integer
-function getplayerChoice(playerChoice) {
+function playerChoiceToInt(playerChoice) {
+        let playerSelection
+
         if (playerChoice === "rock") {
-            const playerSelection = 0;
+             playerSelection = 0;
         }else if (playerChoice === "paper") {
-            const playerSelection = 1;
+            playerSelection = 1;
         }else if (playerChoice === "scissors") {
-            const playerSelection = 2;
+            playerSelection = 2;
         }else {
-            const playerSelection = alert("Wrong Selection. Select Rock, Paper or Scissors.")
+            playerSelection = alert("Wrong Selection. Select Rock, Paper or Scissors.")
         }
         return playerSelection
 }
 
 //random number between 0 and 2
 function getComputerChoice() {
-    computerSelection = Math.floor(Math.random() * 3);
+    let computerSelection = Math.floor(Math.random() * 3);
     return computerSelection
 }
 
-//make random number to rock, paper scissors
+//convert computer choice to Rock, Paper or Scissors
 
-function computerChoiceToNumber(computerChoice) {
-    let computerToNumber;
+function computerChoiceToWords(computerChoice) {
+    let computerToWords;
     if (computerChoice === 0) {
-        computerToNumber = "Rock";
+        computerToWords = "Rock";
     }else if (computerChoice === 1) {
-        computerToNumber = "Paper";
-    }else {computerToNumber = "Scissors"}
+        computerToWords = "Paper";
+    }else {computerToWords = "Scissors"}
 
-    return computerToNumber
+    return computerToWords
 }
 
-function playRound(getplayerChoice, getComputerChoice) {
+//Game logic
+
+function playRound(userChoice, computerChoice) {
     const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[getplayerChoice][getComputerChoice];
+    let result = gameArray[userChoice][computerChoice];
     return result
 }
 
-function finalResult(result) {
-    if (result = -1) {
-        let finalResult = `You tied! ${playerChoice} tieds with ${playerChoice}`;
-    }else if (result = 0) {
-        let finalResult = `You Loose! ${playerChoice} beats ${playerChoice} `;
+let playRoundResult = playRound(userChoice, computerChoice)
+
+function finalResult(playRoundResult, playerChoice, computerChoiceToWords) {
+    let finalResult
+    if (playRoundResult === -1) {
+        finalResult = `You tied! ${playerChoice} tieds with ${computerChoiceToWords}`;
+    }else if (playRoundResult === 0) {
+        finalResult = `You Loose! ${computerChoiceToWords} beats ${playerChoice} `;
     }else {
-        let finalResult = `Yoy Win! ${playerChoice} defeat ${playerChoice}`
+        finalResult = `Yoy Win! ${playerChoice} beats ${computerChoiceToWords}`
     }
     return finalResult
 }
 
 
-console.log(playRound())
+console.log(finalResult(playRoundResult, playerChoice, computerChoiceToWords(computerChoice)))
