@@ -1,21 +1,15 @@
 let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
 let computerChoice = getComputerChoice();
 
-function playRound(getplayerChoice, getComputerChoice) {
-    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[getplayerChoice][getComputerChoice];
-    return result
-}
+function getplayerChoice(var1) {
+        let playerSelection;
 
-function getplayerChoice(playerChoice) {
-        if (playerChoice === "rock") {
-            const playerSelection = 0;
-        }else if (playerChoice === "paper") {
-            const playerSelection = 1;
-        }else if (playerChoice === "scissors") {
-            const playerSelection = 2;
+        if (var1 === "rock") {
+            playerSelection = 0;
+        }else if (var1 === "paper") {
+            playerSelection = 1;
         }else {
-            const playerSelection = prompt("Wrong Selection. Select Rock, Paper or Scissors: ")
+            var1 = 2;     
         }
         return playerSelection
 }
@@ -25,16 +19,36 @@ function getComputerChoice() {
     return computerSelection
 }
 
+function computerToWords(computerChoice) {
+    if (computerChoice = 0) {
+        var2 = "rock";
+    }else if (computerChoice = 1) {
+        var2 = "paper";
+    }else {var2 = "scissors"}
+
+    return var2;
+}
+
+function playRound(getplayerChoice, computerChoice) {
+    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
+    let result = gameArray[getplayerChoice][computerChoice];
+    return result
+}
+
+
 function finalResult(result) {
-    if (result = -1) {
-        let finalResult = `You tied! ${playerChoice} tieds with ${playerChoice}`;
-    }else if (result = 0) {
-        let finalResult = `You Loose! ${playerChoice} beats ${playerChoice} `;
+    let finalResult;
+    if (result === -1) {
+        finalResult = `You tied! ${playerChoice} tieds with ${computerToWords()}`;
+    }else if (result === 0) {
+        finalResult = `You Loose! ${computerToWords} beats ${playerChoice} `;
     }else {
-        let finalResult = `Yoy Win! ${playerChoice} defeat ${playerChoice}`
+        finalResult = `Yoy Win! ${playerChoice} defeat ${computerToWords()}`;
     }
     return finalResult
 }
 
 
-console.log(playRound())
+console.log(computerToWords(computerChoice))
+console.log(getplayerChoice(playerChoice))
+console.log(finalResult())
