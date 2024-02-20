@@ -6,11 +6,12 @@ function handleButtonClick(button) {
     console.log("Player Choice:", playerChoice);
     console.log("Computer Choice:", computerChoice);
     console.log("Play Round Result: ", playRoundResult);
-
+    
     let playerChoiceText = playerChoiceToWords(playerChoice);
     let computerChoiceText = computerChoiceToWords(computerChoice);
 
-    console.log(finalResult(playRoundResult, playerChoiceText, computerChoiceText));
+    const result = document.querySelector('#final-result');
+    result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
 }
 
 let buttonSelection = document.querySelectorAll('button');
