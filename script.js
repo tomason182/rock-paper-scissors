@@ -1,31 +1,30 @@
-function handleButtonClick(parametroOne) {
-    let playerChoice = parseInt(parametroOne.id);
-    let computerChoice = getComputerChoice()
+function handleButtonClick(button) {
+    let playerChoice = parseInt(button.id);
+    let computerChoice = getComputerChoice();
     let playRoundResult = playRound(playerChoice, computerChoice);
+
+    console.log("Player Choice:", playerChoice);
+    console.log("Computer Choice:", computerChoice);
+    console.log("Play Round Result: ", playRoundResult);
+
+    let playerChoiceText = playerChoiceToWords(playerChoice);
+    let computerChoiceText = computerChoiceToWords(computerChoice);
+
+    console.log(finalResult(playRoundResult, playerChoiceText, computerChoiceText));
 }
-
-
-
-
-//Ask user for selection. Store it
-let playerChoice;
 
 let buttonSelection = document.querySelectorAll('button');
 
 buttonSelection.forEach((button) => {
     button.addEventListener('click', () => {
-    playerChoice = parseInt(button.id);
+        handleButtonClick(button);
     });
 });
 
-
-//Ask computer for selection. Store it
-let computerChoice = getComputerChoice();
-
 function getComputerChoice() {
 
-    let computerSelection = Math.floor(Math.random() * 3);
-    return computerSelection
+    return Math.floor(Math.random() * 3);
+    
 }
 
 function computerChoiceToWords(q) {
@@ -49,45 +48,19 @@ function playerChoiceToWords(b) {
 
     return playerChoiceToWords;
 }
-//Game logic
 
 function playRound(a, b) {
     const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-    let result = gameArray[a][b];
-    return result
+    return gameArray[a][b];
 }
 
-let playRoundResult = playRound(playerChoice, computerChoice)
-
-function finalResult(playRoundResult, playerChoiceToWords, computerChoiceToWords) {
+function finalResult(x, y, z) {
     let finalResult
-    if (playRoundResult === -1) {
-        finalResult = `You tied! ${playerChoiceToWords} tieds with ${computerChoiceToWords}`;
-    }else if (playRoundResult === 0) {
-        finalResult = `You Loose! ${computerChoiceToWords} beats ${playerChoiceToWords} `;
+    if (x === -1) {
+        finalResult = `You tied! ${y} tieds with ${z}`;
+    }else if (x === 0) {
+        finalResult = `You Loose! ${z} beats ${y} `;
     }else {
-        finalResult = `Yoy Win! ${playerChoiceToWords} beats ${computerChoiceToWords}`}
+        finalResult = `Yoy Win! ${y} beats ${z}`}
     return finalResult
 }
-
-//Show result in console.log
-console.log(finalResult(playRoundResult, playerChoiceToWords(playerChoice), computerChoiceToWords(computerChoice)))
-
-//modify player selection to intiger to compare
-//let userChoice = playerChoiceToInt(playerChoice)
-
-//Transform player choice into integer function
-//function playerChoiceToInt(playerChoice) {
-//       let playerSelection
-
-        /* if (playerChoice === "rock") {
-             playerSelection = 0;
-        }else if (playerChoice === "paper") {
-            playerSelection = 1;
-        }else if (playerChoice === "scissors") {
-            playerSelection = 2;
-        }else {
-            playerSelection = alert("Wrong Selection. Select Rock, Paper or Scissors.")
-        }
-        return playerSelection}
- */
