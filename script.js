@@ -1,3 +1,12 @@
+function handleButtonClick(parametroOne) {
+    let playerChoice = parseInt(parametroOne.id);
+    let computerChoice = getComputerChoice()
+    let playRoundResult = playRound(playerChoice, computerChoice);
+}
+
+
+
+
 //Ask user for selection. Store it
 let playerChoice;
 
