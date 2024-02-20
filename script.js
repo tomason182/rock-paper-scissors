@@ -1,86 +1,93 @@
-let playerScore = 0;
-let computerScore = 0;
+function handleButtonClick(button) {        
 
-while(playerScore < 5 && computerScore <5) {
+    let playerChoice = parseInt(button.id);
+    let computerChoice = getComputerChoice();
+    let playRoundResult = playRound(playerChoice, computerChoice);
 
-    function handleButtonClick(button) {        
-
-            let playerChoice = parseInt(button.id);
-            let computerChoice = getComputerChoice();
-            let playRoundResult = playRound(playerChoice, computerChoice);
-
-            if (playRoundResult === 1) {
-                playerScore += 1;
-            }else if (playRoundResult === 0) {
-                computerScore += 1;
-            }
-                    
-            let playerChoiceText = playerChoiceToWords(playerChoice);
-            let computerChoiceText = computerChoiceToWords(computerChoice); 
-
-            const result = document.querySelector('#final-result');
-            result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
-
-            const computerScoreM = document.querySelector('#computer-score');
-            computerScoreM.textContent = `Computer result: ${computerScore}`; 
-
-            const playerScoreM = document.querySelector('#player-score');
-            playerScoreM.textContent = `Player Score: ${playerScore}`
-        }
+    let playerScore, computerScore;
+    [playerScore, computerScore] = getScore(playRoundResult, playerScore, computerScore)
     
+            
+    let playerChoiceText = playerChoiceToWords(playerChoice);
+    let computerChoiceText = computerChoiceToWords(computerChoice); 
 
-    let buttonSelection = document.querySelectorAll('button');
+    const result = document.querySelector('#final-result');
+    result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
 
-    buttonSelection.forEach((button) => {
-        button.addEventListener('click', () => {
-            handleButtonClick(button);
-        });
+    const computerScoreM = document.querySelector('#computer-score');
+    computerScoreM.textContent = `Computer result: ${computerScore}`; 
+
+    const playerScoreM = document.querySelector('#player-score');
+    playerScoreM.textContent = `Player Score: ${playerScore}`
+    }
+
+
+let buttonSelection = document.querySelectorAll('button');
+
+buttonSelection.forEach((button) => {
+    button.addEventListener('click', () => {
+        handleButtonClick(button);
     });
+});
 
-    function getComputerChoice() {
+function getComputerChoice() {
 
-        return Math.floor(Math.random() * 3);
-        
-    }
+    return Math.floor(Math.random() * 3);
+    
+}
 
-    function computerChoiceToWords(q) {
-        let computerToWords;
-        if (q === 0) {
-            computerToWords = "Rock";
-        }else if (q === 1) {
-            computerToWords = "Paper";
-        }else {computerToWords = "Scissors"}
+function computerChoiceToWords(q) {
+    let computerToWords;
+    if (q === 0) {
+        computerToWords = "Rock";
+    }else if (q === 1) {
+        computerToWords = "Paper";
+    }else {computerToWords = "Scissors"}
 
-        return computerToWords;
-    }
+    return computerToWords;
+}
 
-    function playerChoiceToWords(b) {
-        let playerChoiceToWords;
-        if (b === 0) {
-            playerChoiceToWords = "Rock";
-        }else if (b === 1) {
-            playerChoiceToWords = "Paper";
-        }else {playerChoiceToWords = "Sissors"}
+function playerChoiceToWords(b) {
+    let playerChoiceToWords;
+    if (b === 0) {
+        playerChoiceToWords = "Rock";
+    }else if (b === 1) {
+        playerChoiceToWords = "Paper";
+    }else {playerChoiceToWords = "Sissors"}
 
-        return playerChoiceToWords;
-    }
+    return playerChoiceToWords;
+}
 
-    function playRound(a, b) {
-        const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
-        return gameArray[a][b];
-    }
+function playRound(a, b) {
+    const gameArray =[[-1,0,1],[1,-1,0],[0,1,-1]];
+    return gameArray[a][b];
+}
 
 function finalResult(x, y, z) {
-    let finalResult
-    if (x === -1) {
-        finalResult = `You tied! ${y} tieds with ${z}`;
-    }else if (x === 0) {
-        finalResult = `You Loose! ${z} beats ${y} `;
-    }else {
-        finalResult = `Yoy Win! ${y} beats ${z}`}
-    return finalResult
-}
+let finalResult
+if (x === -1) {
+    finalResult = `You tied! ${y} tieds with ${z}`;
+}else if (x === 0) {
+    finalResult = `You Loose! ${z} beats ${y} `;
+}else {
+    finalResult = `Yoy Win! ${y} beats ${z}`}
+return finalResult
 }
 
-const result = document.querySelector('#final-result');
-result.textContent = "GAME FINISHED"
+function getScore(comp, a, b) {
+   
+    if (a === NaN && b === NaN) {
+        a = 0;
+        b = 0;
+    }else if (a === NaN){
+        a = 0;
+    }else if (b === NaN) {
+        b = 0;
+    }
+
+    if (comp === 0){
+        a += 1;
+    }else if(comp === 1) {
+        b +=1;
+    }
+}
