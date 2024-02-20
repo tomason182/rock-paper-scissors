@@ -1,5 +1,5 @@
 //Ask user for selection. Store it
-let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
+//let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
 
 //Ask computer for selection. Store it
 let computerChoice = getComputerChoice();
