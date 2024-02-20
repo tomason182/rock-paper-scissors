@@ -42,7 +42,7 @@ function playerChoiceToWords(b) {
     let playerChoiceToWords;
     if (b === 0) {
         playerChoiceToWords = "Rock";
-    }else if (q === 1) {
+    }else if (b === 1) {
         playerChoiceToWords = "Paper";
     }else {playerChoiceToWords = "Sissors"}
 
