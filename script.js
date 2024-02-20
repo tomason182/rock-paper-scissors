@@ -12,6 +12,14 @@ function handleButtonClick(button) {
 
     const result = document.querySelector('#final-result');
     result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
+    let playerResult = 0;
+    let computerResult = 0;
+    
+    const playerScore = document.querySelector('#player-score');
+    playerScore.textContent = `player result:  ${playerResult}`;
+    const computerScore = document.querySelector('#computer-score');
+    computerScore.textContent = `Computer result: ${computerResult}`;
+    
 }
 
 let buttonSelection = document.querySelectorAll('button');
