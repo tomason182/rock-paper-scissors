@@ -12,13 +12,24 @@ function handleButtonClick(button) {
 
     const result = document.querySelector('#final-result');
     result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
+    
     let playerResult = 0;
     let computerResult = 0;
-    
-    const playerScore = document.querySelector('#player-score');
-    playerScore.textContent = `player result:  ${playerResult}`;
-    const computerScore = document.querySelector('#computer-score');
-    computerScore.textContent = `Computer result: ${computerResult}`;
+
+    while (playerResult < 5  || computerResult < 5) {        
+        if (playRoundResult === 0) {
+            const playerScore = document.querySelector('#player-score');
+            playerScore.textContent = `player result:  ${playerResult}`;
+            playerResult += 1;
+        }else if (playRoundResult === 1){
+            const computerScore = document.querySelector('#computer-score');
+            computerScore.textContent = `Computer result: ${computerResult}`;
+            computerResult += 1;
+        }else {
+            continue
+        }
+            
+    }
     
 }
 
