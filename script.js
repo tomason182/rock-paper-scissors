@@ -1,5 +1,10 @@
 //Ask user for selection. Store it
-//let playerChoice = prompt("Select Rock, Paper or Scissors: ").toLowerCase();
+let playerChoice = document.querySelectorAll('button');
+
+playerChoice.forEach((choice) => {
+    choice.addEventListener('click', () => {alert(choice.id);
+    })
+})
 
 //Ask computer for selection. Store it
 let computerChoice = getComputerChoice();
