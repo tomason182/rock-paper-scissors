@@ -11,8 +11,19 @@ h1{
     margin: 10px;
     width: 255px;
     height: 55px;
-    background-color: #ccd5ae;
+    background-color: #4a4e69;
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
+    color: whitesmoke
+}
+
+#result{
+    display: flex;
+    justify-content: center;
+}
+
+#result h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #3d405b
 }
