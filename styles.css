@@ -42,9 +42,24 @@ h1{
 }
 
 #scores .title{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: auto;
     color: #f9dcc4;
-    margin-right: 55px;
+    margin-right: 15px;
     font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#player-score, #computer-score{
+    display: flex;
+    justify-content: center;
+    font-size: 175px;
+    font-weight: 900;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+    height: 200px;
+}
