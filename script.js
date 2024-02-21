@@ -1,6 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const initialPlayer = document.querySelector('#player-score');
+initialPlayer.textContent = 0;
+
+const initialComputer = document.querySelector('#computer-score');
+initialComputer.textContent = 0;
+
+
 
 function handleButtonClick(button) {  
     
@@ -11,7 +18,7 @@ function handleButtonClick(button) {
     let computerChoiceText = computerChoiceToWords(computerChoice);
         
     let playRoundResult = playRound(playerChoice, computerChoice);
-
+    
     if (playerScore === 4 || computerScore === 4){
 
         const result = document.querySelector('#final-result');
