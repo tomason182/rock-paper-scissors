@@ -1,5 +1,10 @@
+*{
+    background-color: #000814;
+}
+
 h1{
     text-align: center;
+    color: whitesmoke;
 }
 
 #buttons{
@@ -11,11 +16,13 @@ h1{
     margin: 10px;
     width: 255px;
     height: 55px;
-    background-color: #4a4e69;
+    background-color: #403d39;
     border-radius: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
-    color: whitesmoke
+    color: whitesmoke;
+    box-shadow: none;
+    border: none;
 }
 
 #result{
@@ -25,5 +32,12 @@ h1{
 
 #result h2{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #3d405b
+    color: whitesmoke;
 }
+
+#scores{
+    display:flex;
+    justify-content: center;
+    color: white
+}
+
