@@ -28,10 +28,10 @@ function handleButtonClick(button) {
         result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
 
         const computerScoreM = document.querySelector('#computer-score');
-        computerScoreM.textContent = `Computer result: ${computerScore}`; 
+        computerScoreM.textContent = computerScore; 
 
         const playerScoreM = document.querySelector('#player-score');
-        playerScoreM.textContent = `Player Score: ${playerScore}`;
+        playerScoreM.textContent = playerScore;
     }
     }
 
