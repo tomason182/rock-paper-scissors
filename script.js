@@ -2,34 +2,38 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-function handleButtonClick(button) {        
-
+function handleButtonClick(button) {  
+    
     let playerChoice = parseInt(button.id);
-    let computerChoice = getComputerChoice();
-    let playRoundResult = playRound(playerChoice, computerChoice); 
+    let computerChoice = getComputerChoice();     
             
     let playerChoiceText = playerChoiceToWords(playerChoice);
-    let computerChoiceText = computerChoiceToWords(computerChoice); 
+    let computerChoiceText = computerChoiceToWords(computerChoice);
+        
+    let playRoundResult = playRound(playerChoice, computerChoice);
 
-    const result = document.querySelector('#final-result');
-    result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
+    if (playerScore === 4 || computerScore === 4){
 
-    while (playerScore < 5 && computerScore < 5) {
+        const result = document.querySelector('#final-result');
+        result.textContent = "End of Game";
+        
+    }else{
         if (playRoundResult === 1){
             playerScore += 1;
         }else if (playRoundResult === 0) {
             computerScore += 1;
-        } 
+        }
     
-    
+        const result = document.querySelector('#final-result');
+        result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
+
         const computerScoreM = document.querySelector('#computer-score');
         computerScoreM.textContent = `Computer result: ${computerScore}`; 
 
         const playerScoreM = document.querySelector('#player-score');
-        playerScoreM.textContent = `Player Score: ${playerScore}`
-    }    
-}
-
+        playerScoreM.textContent = `Player Score: ${playerScore}`;
+    }
+    }
 
 let buttonSelection = document.querySelectorAll('button');
 
