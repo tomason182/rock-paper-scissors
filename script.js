@@ -19,11 +19,22 @@ function handleButtonClick(button) {
         
     let playRoundResult = playRound(playerChoice, computerChoice);
     
-    if (playerScore === 4 || computerScore === 4){
+    if (playerScore === 4){
+
+        const playerScoreM = document.querySelector('#player-score');
+        playerScoreM.textContent = 5;
 
         const result = document.querySelector('#final-result');
         result.textContent = "End of Game";
-        
+
+    }else if(computerScore === 4) {
+
+        const computerScoreM = document.querySelector('#computer-score');
+        computerScoreM.textContent = 5;
+
+        const result = document.querySelector('#final-result');
+        result.textContent = "End of Game";
+         
     }else{
         if (playRoundResult === 1){
             playerScore += 1;
