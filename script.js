@@ -1,12 +1,12 @@
+let playerScore = 0;
+let computerScore = 0;
+
+
 function handleButtonClick(button) {        
 
     let playerChoice = parseInt(button.id);
     let computerChoice = getComputerChoice();
-    let playRoundResult = playRound(playerChoice, computerChoice);
-
-    let playerScore, computerScore;
-    [playerScore, computerScore] = getScore(playRoundResult, playerScore, computerScore)
-    
+    let playRoundResult = playRound(playerChoice, computerChoice); 
             
     let playerChoiceText = playerChoiceToWords(playerChoice);
     let computerChoiceText = computerChoiceToWords(computerChoice); 
@@ -14,12 +14,21 @@ function handleButtonClick(button) {
     const result = document.querySelector('#final-result');
     result.textContent = finalResult(playRoundResult, playerChoiceText, computerChoiceText);
 
-    const computerScoreM = document.querySelector('#computer-score');
-    computerScoreM.textContent = `Computer result: ${computerScore}`; 
+    while (playerScore < 5 && computerScore < 5) {
+        if (playRoundResult === 1){
+            playerScore += 1;
+        }else if (playRoundResult === 0) {
+            computerScore += 1;
+        } 
+    
+    
+        const computerScoreM = document.querySelector('#computer-score');
+        computerScoreM.textContent = `Computer result: ${computerScore}`; 
 
-    const playerScoreM = document.querySelector('#player-score');
-    playerScoreM.textContent = `Player Score: ${playerScore}`
-    }
+        const playerScoreM = document.querySelector('#player-score');
+        playerScoreM.textContent = `Player Score: ${playerScore}`
+    }    
+}
 
 
 let buttonSelection = document.querySelectorAll('button');
@@ -72,22 +81,4 @@ if (x === -1) {
 }else {
     finalResult = `Yoy Win! ${y} beats ${z}`}
 return finalResult
-}
-
-function getScore(comp, a, b) {
-   
-    if (a === NaN && b === NaN) {
-        a = 0;
-        b = 0;
-    }else if (a === NaN){
-        a = 0;
-    }else if (b === NaN) {
-        b = 0;
-    }
-
-    if (comp === 0){
-        a += 1;
-    }else if(comp === 1) {
-        b +=1;
-    }
 }
